@@ -1,0 +1,23 @@
+{
+  "name": "react-google-minicalendar",
+  "version": "1.0.0",
+  "description": "Mini Calendar Component",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xicovarisco/react-google-minicalendar.git"
+  },
+  "keywords": [
+    "Google",
+    "Calendar"
+  ],
+  "author": "Francisco Varisco",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xicovarisco/react-google-minicalendar/issues"
+  },
+  "homepage": "https://github.com/xicovarisco/react-google-minicalendar#readme"
+}
