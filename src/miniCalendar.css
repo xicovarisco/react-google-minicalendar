@@ -1,0 +1,64 @@
+.miniCalendar {
+  padding: 20px; }
+
+.miniCalendar .monthHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 6px 0px 12px; }
+
+.miniCalendar .monthHeader p {
+  font-weight: 700;
+  color: #969696; }
+
+.miniCalendar .monthHeader .monthControls {
+  display: flex;
+  flex-direction: column; }
+
+.miniCalendar .monthHeader .monthControls svg {
+  cursor: pointer; }
+
+.miniCalendar .monthHeader .monthControls svg:hover {
+  fill: #969696 !important; }
+
+.miniCalendar .monthContent .weeks {
+  display: flex;
+  margin-top: 20px; }
+
+.miniCalendar .monthContent .weeks span {
+  display: flex;
+  flex: 1 0 auto;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 10px;
+  color: #969696;
+  min-width: 30px; }
+
+.miniCalendar .monthContent .days {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px; }
+
+.miniCalendar .monthContent .days .weekRow {
+  display: flex; }
+
+.miniCalendar .monthContent .days .weekRow .day {
+  display: flex;
+  flex: 1 0 auto;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 10px;
+  min-width: 30px;
+  color: #444;
+  cursor: pointer;
+  padding: 8px 0px;
+  border-radius: 15px; }
+
+.miniCalendar .monthContent .days .weekRow .day:hover {
+  background-color: #ddd; }
+
+.miniCalendar .monthContent .days .weekRow .day.outMonth {
+  color: #999; }
+
+.miniCalendar .monthContent .days .weekRow .day.today {
+  color: #FF5065; }
