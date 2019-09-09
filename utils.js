@@ -45,4 +45,6 @@ const utils = {
             someDate.getMonth() === today.getMonth() &&
             someDate.getFullYear() === today.getFullYear();
     }
-} 
+}
+
+export { utils };

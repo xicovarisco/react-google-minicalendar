@@ -13,10 +13,6 @@ var _lodash = _interopRequireDefault(require("lodash"));
 
 var _utils = require("./utils");
 
-var _keyboardArrowUp = _interopRequireDefault(require("material-ui/svg-icons/hardware/keyboard-arrow-up"));
-
-var _keyboardArrowDown = _interopRequireDefault(require("material-ui/svg-icons/hardware/keyboard-arrow-down"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj["default"] = obj; return newObj; } }
@@ -98,12 +94,15 @@ var GoogleMiniCalendar = function GoogleMiniCalendar() {
     className: "monthHeader"
   }, _react["default"].createElement("p", null, "".concat((0, _moment["default"])().month(month).format('MMMM'), " ").concat(year)), _react["default"].createElement("div", {
     className: "monthControls"
-  }, _react["default"].createElement(_keyboardArrowUp["default"], {
+  }, _react["default"].createElement("img", {
+    alt: "Arrow Up",
+    src: "./keyboardArrowUp.svg",
     style: {
       width: 20,
       height: 20
     },
     color: "#666",
+    className: "keyboardKey",
     onClick: function onClick() {
       var newMonth = month;
       newMonth += 1;
@@ -115,12 +114,15 @@ var GoogleMiniCalendar = function GoogleMiniCalendar() {
 
       setMonth(newMonth);
     }
-  }), _react["default"].createElement(_keyboardArrowDown["default"], {
+  }), _react["default"].createElement("img", {
+    alt: "Arrow Down",
+    src: "./keyboardArrowDown.svg",
     style: {
       width: 20,
       height: 20
     },
     color: "#666",
+    className: "keyboardKey",
     onClick: function onClick() {
       var newMonth = month;
       newMonth -= 1;
@@ -151,57 +153,3 @@ var GoogleMiniCalendar = function GoogleMiniCalendar() {
 
 var _default = GoogleMiniCalendar;
 exports["default"] = _default;
-"use strict";
-
-var utils = {
-  getDaysInMonth: function getDaysInMonth(month, year) {
-    var date = new Date(Date.UTC(year, month, 1));
-    var days = [];
-
-    while (date.getMonth() === month) {
-      var dayOfWeek = date.getDay(); // It should add some days at the beggining of the array from last month
-      // This is useful for displaying purposes
-
-      if (days.length === 0 && dayOfWeek !== 0) {
-        for (var r = dayOfWeek; r > 0; r -= 1) {
-          var d = new Date(date);
-          var dateToAdd = new Date(d.setDate(d.getDate() - r));
-          days.push({
-            date: new Date(dateToAdd),
-            outOfMonth: true
-          });
-        }
-      }
-
-      days.push({
-        date: new Date(date),
-        outOfMonth: false
-      });
-      date.setDate(date.getDate() + 1);
-    }
-
-    var lastDayOfMonth = days[days.length - 1].date; // It should add some days at the end of the array from the current month
-    // This is useful for displaying purposes
-
-    if (lastDayOfMonth.getDay() !== 6) {
-      var numberOfDaysToAdd = 6 - lastDayOfMonth.getDay();
-
-      for (var _r = 1; _r <= numberOfDaysToAdd; _r += 1) {
-        var _d = new Date(lastDayOfMonth);
-
-        var _dateToAdd = new Date(_d.setDate(_d.getDate() + _r));
-
-        days.push({
-          date: new Date(_dateToAdd),
-          outOfMonth: true
-        });
-      }
-    }
-
-    return days;
-  },
-  isToday: function isToday(someDate) {
-    var today = new Date();
-    return someDate.getDate() === today.getDate() && someDate.getMonth() === today.getMonth() && someDate.getFullYear() === today.getFullYear();
-  }
-};

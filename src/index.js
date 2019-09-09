@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import moment from 'moment';
 import _ from 'lodash';
 import { utils } from './utils';
-import ArrowUpIcon from 'material-ui/svg-icons/hardware/keyboard-arrow-up';
-import ArrowDownIcon from 'material-ui/svg-icons/hardware/keyboard-arrow-down';  
 
 const daysOfTheWeek = [
     { day: 'Sunday', abr: 'S' },
@@ -58,9 +56,12 @@ const GoogleMiniCalendar = () => {
             <div className="monthHeader">
                 <p>{`${moment().month(month).format('MMMM')} ${year}`}</p>
                 <div className="monthControls">
-                    <ArrowUpIcon
+                    <img
+                        alt="Arrow Up"
+                        src="./keyboardArrowUp.svg"
                         style={{ width: 20, height: 20 }}
                         color="#666"
+                        className="keyboardKey"
                         onClick={() => {
                             let newMonth = month;
                             newMonth += 1;
@@ -71,9 +72,12 @@ const GoogleMiniCalendar = () => {
                             setMonth(newMonth);
                         }}
                     />
-                    <ArrowDownIcon
+                    <img
+                        alt="Arrow Down"
+                        src="./keyboardArrowDown.svg"
                         style={{ width: 20, height: 20 }}
                         color="#666"
+                        className="keyboardKey"
                         onClick={() => {
                             let newMonth = month;
                             newMonth -= 1;
